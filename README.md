@@ -2,7 +2,7 @@
 A pendroid verseny elso fordulojanak a teljes projekt repo
 ## To Do
  - [x] Pohar modellek
- - [ ] UI design
+ - [x] UI design
  - [ ] Kitoltesi parameterek (csuszkak) szamolasa
  - [ ] Kitoltesi animacio
 ### Extrak
