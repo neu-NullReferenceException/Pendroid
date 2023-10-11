@@ -357,6 +357,7 @@
 -analyzer:"D:/Unity Editors/2022.3.5f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/DrinkMachine.cs"
 "Assets/Scripts/Liquid.cs"
+"Assets/Scripts/Screenshot.cs"
 -langversion:9.0
 
 /deterministic

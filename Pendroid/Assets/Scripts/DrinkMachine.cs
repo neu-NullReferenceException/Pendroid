@@ -2,11 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
+/*
+ Az extra funkciók:
+    - 3Ds begjelenítés
+    - töltés animáció a kv gépen
+    - a folyadék a pohárba töltõdik (a perspektíva miatt nem minden pohárnál látható de mindegyik ugyanúgy mûködik, stabil 60 fps ajánlott)
+    - a folyadékok különbözõ megjelenéssel rendelkeznek
+    - particle system vizualizálja a folyadék töltését
+    - töltés hangeffekt
+ */
 
 public class DrinkMachine : MonoBehaviour
 {
     public float fillTime = 3;
-    public float outputPipeRadius;
+    public float outputPipeDiameter;
     public float flowSpeed;
 
     public Cup[] cups;
@@ -23,10 +34,20 @@ public class DrinkMachine : MonoBehaviour
     [Header("References")]
     public TextMeshProUGUI drinkNameText;
     public TextMeshProUGUI volumeText;
-    public TextMeshProUGUI pipeRadiusText;
+    public TextMeshProUGUI pipeDiameterText;
     public TextMeshProUGUI fillSpeedText;
     public TextMeshProUGUI fillTimeText;
     public TextMeshProUGUI timerText;
+
+    public ParticleSystem[] psystems;
+
+    public Slider fillSpeedSlider;      // cm/sec
+    public Slider fillTimeSlider;       // sec
+    public Slider pipeDiameterSlider;   //mm
+                                        // a térfogat ml
+
+    public Animator animator;
+    public AudioSource audio;
 
     public void RefreshDrinkData()
     {
@@ -86,20 +107,64 @@ public class DrinkMachine : MonoBehaviour
         volumeText.text = cups[currentCupID].volume + " ml";
     }
 
-    public void SetPipeRadius(int r)
+    public void SetPipeRadius()
     {
-        outputPipeRadius = r;
-        pipeRadiusText.text = r + "";
+        outputPipeDiameter = pipeDiameterSlider.value;
+        pipeDiameterText.text = pipeDiameterSlider.value + "";
+        CalculateFillParameters();
     }
-    public void SetFlowSpeed(int mlPerSec)
+    public void SetFlowSpeed()
     {
-        flowSpeed = mlPerSec;
-        pipeRadiusText.text = mlPerSec + "";
+        flowSpeed = fillSpeedSlider.value;
+        fillSpeedText.text = fillSpeedSlider.value + "";
+        CalculateFillParameters();
     }
-    public void SetFillTime(float t)
+    public void SetFillTime()
     {
-        fillTime = t;
-        pipeRadiusText.text = fillTime + "";
+        fillTime = fillTimeSlider.value;
+        if(fillTime.ToString().Length > 4)
+        {
+            fillTimeText.text = fillTime.ToString().Substring(0, 4);
+        }
+        else
+        {
+            fillTimeText.text = fillTime.ToString();
+        }
+        
+        CalculateFillParametersWithGivenTime();
+    }
+
+    public void SetPipeRadiusSlider()
+    {
+        pipeDiameterSlider.value = outputPipeDiameter ;
+        pipeDiameterText.text = pipeDiameterSlider.value + "";
+    }
+    public void SetFlowSpeedSlider()
+    {
+        fillSpeedSlider.value = flowSpeed;
+        pipeDiameterText.text = fillSpeedSlider.value + "";
+    }
+    public void SetFillTimeSlider()
+    {
+        fillTimeSlider.value = fillTime;
+        pipeDiameterText.text = fillTime + "";
+    }
+
+    public void CalculateFillParameters()
+    {
+        //Flowrate = v * (pi*r2)
+        float volume = cups[currentCupID].volume;
+        fillTime = volume / (flowSpeed * Mathf.PI * Mathf.Pow(outputPipeDiameter / 2, 2));
+        fillTimeText.text = fillTime.ToString().Substring(0,4);
+        fillTimeSlider.value  = fillTime;
+    }
+
+    public void CalculateFillParametersWithGivenTime()
+    {
+        //Flowrate = v * (pi*r2)
+        float volume = cups[currentCupID].volume;
+        fillSpeedSlider.value = Mathf.Round(volume / fillTime);
+        fillSpeedText.text = fillSpeedSlider.value + "";
     }
 
     public void ServeDrink()
@@ -114,13 +179,39 @@ public class DrinkMachine : MonoBehaviour
             na ide is kéne a matematikai mókolásból ami a fillTime a flowSpeed; outputPipeRadius; és a térfogat eredményébõ következik
          */
 
-        currentCup.GetComponent<Liquid>().StartFill(fillTime, 3);
         currentCup.GetComponent<Liquid>().liquidTransform.GetChild(0).GetComponent<MeshRenderer>().material = drinks[currentDrinkID].drinkMaterial;
+        currentCup.GetComponent<Liquid>().StartFill(fillTime, 3);
+        StartCoroutine(UseDrinkParticle(3, fillTime));
+        
+    }
+
+    public IEnumerator UseDrinkParticle(float waitBeforeFill, float fillTime)
+    {
+        animator.Play("PREPARE");
+        yield return new WaitForSeconds(waitBeforeFill);
+        foreach (ParticleSystem ps in psystems)
+        {
+            ps.Play();
+        }
+        yield return new WaitForSeconds(fillTime);
+        animator.Play("RETURN");
+        audio.Play();
+        foreach (ParticleSystem ps in psystems)
+        {
+            ps.Pause();
+            ps.Clear();
+        }
     }
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
+        fillSpeedText.text = fillTimeSlider.value + "";
+        flowSpeed = fillTimeSlider.value;
+        pipeDiameterText.text = pipeDiameterSlider.value + "";
+        outputPipeDiameter = pipeDiameterSlider.value;
+
+        CalculateFillParameters();
     }
 }
 
