@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-            - Pendroid
+          - Pendroid
         targetPlatform:
           - Android
     outputs:
@@ -47,7 +47,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: Library
-          key: Library-build-${{ matrix.targetPlatform }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          key: Library-build-${{ matrix.targetPlatform }}-${{ hashFiles('Pendroid/Assets/**', 'Pendroid/Packages/**', 'Pendroid/ProjectSettings/**') }}
           restore-keys: |
             Library-build-${{ matrix.targetPlatform }}-
             Library-build-
