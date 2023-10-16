@@ -9,11 +9,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        projectPath:
+            - Pendroid
         targetPlatform:
           - Android
-          - iOS
-          - StandaloneLinux64
-          - WebGL
     outputs:
       buildVersion: ${{ steps.build.outputs.buildVersion }}
     steps:
