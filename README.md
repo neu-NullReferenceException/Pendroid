@@ -3,7 +3,7 @@ A pendroid verseny elso fordulojanak a teljes projekt repo
 ## To Do
  - [x] Pohar modellek
  - [x] UI design
- - [ ] Kitoltesi parameterek (csuszkak) szamolasa
- - [ ] Kitoltesi animacio
+ - [x] Kitoltesi parameterek (csuszkak) szamolasa
+ - [x] Kitoltesi animacio
 ### Extrak
  - [ ] Telefon accelerometer alapjan sandbox fizika
