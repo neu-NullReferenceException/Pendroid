@@ -101,8 +101,8 @@
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Camera\CameraUI.PhysicalCamera.Drawers.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\ICoreRenderPipelinePreferencesProvider.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\ShaderStripping\ShaderStrippingWatcher.cs" />
-    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Volume\SerializedDataParameter.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Volume\VolumeEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Volume\SerializedDataParameter.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Lighting\ProbeVolume\ProbeVolumeBakingWindow.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Gizmo\HierarchicalBox.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Material\MaterialHeaderScope.cs" />
@@ -127,8 +127,8 @@
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Lighting\LightUnit\LightUnitSlider.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\ShaderStripping\ShaderExtensions.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Debugging\UIFoldoutEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Camera\CameraUI.PhysicalCamera.Skin.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\BuildTargetExtensions.cs" />
+    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Camera\CameraUI.PhysicalCamera.Skin.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\LookDev\ComparisonGizmoController.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\LookDev\DropArea.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\EditorPrefBool.cs" />
@@ -139,8 +139,8 @@
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Camera\CameraUI.Skin.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\CoreEditorStyles.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Volume\VolumeProfileEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Material\MaterialHeaderScopeList.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\RenderPipeline\RenderPipelineGlobalSettingsUI.Drawers.cs" />
+    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Material\MaterialHeaderScopeList.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Volume\VolumeComponentListEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\RenderPipeline\RenderPipelineResourcesEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.8\Editor\Debugging\DebugUIDrawer.Builtins.cs" />

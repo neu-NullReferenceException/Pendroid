@@ -59,9 +59,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\DrinkMachine.cs" />
+    <Compile Include="Assets\Scripts\Box.cs" />
     <Compile Include="Assets\Scripts\Screenshot.cs" />
+    <Compile Include="Assets\Scripts\RecycleItem.cs" />
+    <Compile Include="Assets\Scripts\Flower.cs" />
     <Compile Include="Assets\Scripts\Conveyor.cs" />
+    <Compile Include="Assets\Scripts\MyItem.cs" />
+    <Compile Include="Assets\Scripts\CarryObject.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
+    <Compile Include="Assets\Scripts\KillerBoundary.cs" />
     <Compile Include="Assets\Scripts\Liquid.cs" />
     <Compile Include="Assets\Scripts\TrackAnimator.cs" />
   </ItemGroup>

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public GameObject instantiateObject;
+    public GameObject[] instantiateObjects;
     public Transform spawnPosition;
     public float waitBeforeInstantiate;
     public bool isProduceing = true;
@@ -25,7 +25,7 @@ public class ItemSpawner : MonoBehaviour
     public IEnumerator SpawnItem()
     {
         yield return new WaitForSeconds(waitBeforeInstantiate);
-        Instantiate(instantiateObject, spawnPosition.position, spawnPosition.rotation);
+        Instantiate(instantiateObjects[Random.Range(0,instantiateObjects.Length)], spawnPosition.position, spawnPosition.rotation);
         isWaiting = false;
     }
 }

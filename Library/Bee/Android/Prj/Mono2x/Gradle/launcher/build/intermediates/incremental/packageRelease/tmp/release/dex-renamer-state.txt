@@ -1,4 +1,4 @@
-#Thu Oct 19 14:59:29 CEST 2023
-base.0=D\:\\Unity projekt\\Pendroid\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+#Sun Dec 03 15:19:43 CET 2023
+base.0=D\:\\Github\\Pendroid\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
